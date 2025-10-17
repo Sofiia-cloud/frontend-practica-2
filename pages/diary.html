@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Дневник - Мое портфолио</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container header-container">
+        <div class="header-content">
+          <div class="logo">Portfolio</div>
+          <h1>София</h1>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="../index.html">Главная</a>
+        <a href="projects.html">Проекты</a>
+        <a href="diary.html" class="active">Дневник</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">МОЙ УЧЕБНЫЙ ПРОГРЕСС</h2>
+
+        <div class="diary-content">
+          <div class="diary-entries">
+            <div class="timeline">
+              <div class="timeline-item completed">
+                <div class="timeline-date">01 дек</div>
+                <div class="timeline-content">
+                  <h4>Верстка макета сайта</h4>
+                  <span class="status completed">✓ Завершено</span>
+                </div>
+              </div>
+              <div class="timeline-item completed">
+                <div class="timeline-date">05 дек</div>
+                <div class="timeline-content">
+                  <h4>JavaScript основы</h4>
+                  <span class="status completed">✓ Завершено</span>
+                </div>
+              </div>
+              <div class="timeline-item in-progress">
+                <div class="timeline-date">15 дек</div>
+                <div class="timeline-content">
+                  <h4>Работа с формами</h4>
+                  <span class="status in-progress">In progress</span>
+                </div>
+              </div>
+              <div class="timeline-item in-progress">
+                <div class="timeline-date">20 дек</div>
+                <div class="timeline-content">
+                  <h4>Адаптивный дизайн</h4>
+                  <span class="status in-progress">In progress</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">ТЕКУЩИЕ КУРСЫ</h2>
+        <div class="courses-progress">
+          <div class="course-item">
+            <div class="course-name">
+              <span>Веб-разработка</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="course-item">
+            <div class="course-name">
+              <span>JavaScript</span>
+              <span>70%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 70%"></div>
+            </div>
+          </div>
+          <div class="course-item">
+            <div class="course-name">
+              <span>React</span>
+              <span>50%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 50%"></div>
+            </div>
+          </div>
+          <button class="btn btn-outline">
+            <i class="fas fa-plus"></i> Добавить запись
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <h2 class="section-title">КОНТАКТЫ</h2>
+        <div class="social-links">
+          <a href="https://t.me/sofico6" class="social-link"
+            ><i class="fab fa-telegram"></i
+          ></a>
+          <a href="https://github.com/Sofiia-cloud" class="social-link"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="mailto: sofiya.golovushkina@bk.ru" class="social-link"
+            ><i class="fab fa-envelope-open"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

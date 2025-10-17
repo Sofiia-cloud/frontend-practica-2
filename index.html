@@ -13,32 +13,33 @@
   <body>
     <header>
       <div class="container header-container">
-        <div class="logo">Portfolio</div>
-        <h1>София</h1>
+        <div class="header-content">
+          <div class="logo">Portfolio</div>
+          <h1>София</h1>
+        </div>
       </div>
+      <nav class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="./pages/projects.html">Проекты</a>
+        <a href="./pages/diary.html">Дневник</a>
+        <a href="./pages/contacts.html">Контакты</a>
+      </nav>
     </header>
-
-    <div class="container header-container">
-      <div class="nav-links">
-        <a href="#about">Обо мне</a>
-        <a href="#skills">Навыки</a>
-        <a href="#projects">Проекты</a>
-        <a href="#contact">Контакты</a>
-      </div>
-    </div>
 
     <section id="about" class="section">
       <div class="container">
-        <h2 class="section-title">ОБО МНЕ</h2>
         <div class="about-content">
+          <div class="avatar-image">
+            <img src="./images/photo.png" alt="Фото" />
+          </div>
           <div class="about-text">
             <p>
               Привет! Я студент группы ЭФБО-02-24. Увлекаюсь веб-разработкой
             </p>
+            <div>
+              <a href="./assets/resume.pdf" class="btn">Скачать резюме</a>
+            </div>
           </div>
-        </div>
-        <div>
-          <a href="./assets/resume.pdf" class="btn">Скачать резюме</a>
         </div>
       </div>
     </section>
@@ -101,7 +102,10 @@
 
           <div class="project-card">
             <div class="project-image">
-              <img src="./images/t-news.png" alt="Новостное приложение T-News" />
+              <img
+                src="./images/t-news.png"
+                alt="Новостное приложение T-News"
+              />
             </div>
           </div>
 

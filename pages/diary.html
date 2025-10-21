@@ -30,7 +30,7 @@
       <div class="container">
         <h2 class="section-title">МОЙ УЧЕБНЫЙ ПРОГРЕСС</h2>
 
-        <div class="diary-content">
+        <div class="container">
           <div class="diary-entries">
             <div class="timeline">
               <div class="timeline-item completed">
@@ -71,35 +71,68 @@
       <div class="container">
         <h2 class="section-title">ТЕКУЩИЕ КУРСЫ</h2>
         <div class="courses-progress">
-          <div class="course-item">
-            <div class="course-name">
-              <span>Веб-разработка</span>
-              <span>90%</span>
+          <div id="skills-container">
+            <div class="course-item">
+              <div class="course-name">
+                <span>Веб-разработка</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
             </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="width: 90%"></div>
+            <div class="course-item">
+              <div class="course-name">
+                <span>JavaScript</span>
+                <span>70%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+              </div>
+            </div>
+            <div class="course-item">
+              <div class="course-name">
+                <span>React</span>
+                <span>50%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 50%"></div>
+              </div>
             </div>
           </div>
-          <div class="course-item">
-            <div class="course-name">
-              <span>JavaScript</span>
-              <span>70%</span>
+
+          <div id="add-skill-form" class="add-skill-form" style="display: none">
+            <h3>Добавить новый навык</h3>
+            <div class="form-group">
+              <input
+                type="text"
+                id="skill-name"
+                placeholder="Название навыка"
+                class="form-input"
+              />
             </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="width: 70%"></div>
+            <div class="form-group">
+              <input
+                type="number"
+                id="skill-percent"
+                min="0"
+                max="100"
+                placeholder="Процент освоения"
+                class="form-input"
+              />
+            </div>
+            <div class="form-actions">
+              <button type="button" id="save-skill" class="btn">
+                Сохранить
+              </button>
+              <button type="button" id="cancel-skill" class="btn btn-outline">
+                Отмена
+              </button>
             </div>
           </div>
-          <div class="course-item">
-            <div class="course-name">
-              <span>React</span>
-              <span>50%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="width: 50%"></div>
-            </div>
-          </div>
-          <button class="btn btn-outline">
-            <i class="fas fa-plus"></i> Добавить запись
+
+          <button id="add-skill-btn" class="btn btn-outline">
+            <i class="fas fa-plus"></i> Добавить навык
           </button>
         </div>
       </div>
@@ -121,5 +154,104 @@
         </div>
       </div>
     </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const addSkillBtn = document.getElementById("add-skill-btn");
+        const addSkillForm = document.getElementById("add-skill-form");
+        const saveSkillBtn = document.getElementById("save-skill");
+        const cancelSkillBtn = document.getElementById("cancel-skill");
+        const skillsContainer = document.getElementById("skills-container");
+        const skillNameInput = document.getElementById("skill-name");
+        const skillPercentInput = document.getElementById("skill-percent");
+
+        addSkillBtn.addEventListener("click", function () {
+          addSkillForm.style.display = "block";
+          addSkillBtn.style.display = "none";
+          skillNameInput.focus();
+        });
+
+        cancelSkillBtn.addEventListener("click", function () {
+          addSkillForm.style.display = "none";
+          addSkillBtn.style.display = "block";
+          skillNameInput.value = "";
+          skillPercentInput.value = "";
+        });
+
+        saveSkillBtn.addEventListener("click", function () {
+          const skillName = skillNameInput.value.trim();
+          const skillPercent = parseInt(skillPercentInput.value);
+
+          if (!skillName) {
+            alert("Пожалуйста, введите название навыка");
+            return;
+          }
+
+          if (isNaN(skillPercent) || skillPercent < 0 || skillPercent > 100) {
+            alert("Пожалуйста, введите корректный процент (0-100)");
+            return;
+          }
+
+          const newSkill = document.createElement("div");
+          newSkill.className = "course-item";
+          newSkill.innerHTML = `
+            <div class="course-name">
+              <span>${skillName}</span>
+              <span>${skillPercent}%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: ${skillPercent}%"></div>
+            </div>
+          `;
+
+          skillsContainer.appendChild(newSkill);
+
+          skillNameInput.value = "";
+          skillPercentInput.value = "";
+          addSkillForm.style.display = "none";
+          addSkillBtn.style.display = "block";
+
+          showNotification("Навык успешно добавлен!");
+        });
+
+        function showNotification(message) {
+          const notification = document.createElement("div");
+          notification.className = "notification";
+          notification.textContent = message;
+          notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+          `;
+
+          document.body.appendChild(notification);
+
+          setTimeout(() => {
+            notification.remove();
+          }, 3000);
+        }
+
+        const style = document.createElement("style");
+        style.textContent = `
+          @keyframes slideIn {
+            from {
+              transform: translateX(100%);
+              opacity: 0;
+            }
+            to {
+              transform: translateX(0);
+              opacity: 1;
+            }
+          }
+        `;
+        document.head.appendChild(style);
+      });
+    </script>
   </body>
 </html>

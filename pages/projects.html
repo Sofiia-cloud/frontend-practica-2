@@ -38,59 +38,73 @@
         </div>
 
         <div class="projects-grid">
-          <div class="project-card-large">
+          <div class="project-card-large" data-project="resume">
             <div class="project-image">
-              <img src="../images/resume.png" alt="Резюмет" />
+              <img src="../images/resume.png" alt="Резюме" />
             </div>
             <div class="project-content">
               <h3>Резюме</h3>
               <p class="project-tech">HTML, CSS</p>
-              <p class="project-description">
-                Персональный шаблон резюме с адаптивным дизайном
-              </p>
-              <div class="project-links">
-                <a href="#" class="btn btn-small">Демо</a>
-                <a href="#" class="btn btn-outline btn-small">Код</a>
-              </div>
             </div>
           </div>
 
-          <div class="project-card-large">
+          <div class="project-card-large" data-project="todo">
             <div class="project-image">
               <img src="../images/tasks.png" alt="Todo-приложение" />
             </div>
             <div class="project-content">
               <h3>Todo-приложение</h3>
               <p class="project-tech">JavaScript</p>
-              <p class="project-description">
-                Приложение для управления задачами с локальным хранилищем
-              </p>
-              <div class="project-links">
-                <a href="#" class="btn btn-small">Демо</a>
-                <a href="#" class="btn btn-outline btn-small">Код</a>
-              </div>
             </div>
           </div>
 
-          <div class="project-card-large">
+          <div class="project-card-large" data-project="news">
             <div class="project-image">
-              <img src="../images/t-news.png" alt="Интернет-магазин" />
+              <img src="../images/t-news.png" alt="Новостное приложение" />
             </div>
             <div class="project-content">
-              <h3>Интернет-магазин</h3>
+              <h3>Новостное приложение</h3>
               <p class="project-tech">React</p>
-              <p class="project-description">
-                Электронная коммерция с корзиной покупок и фильтрацией
-              </p>
-              <div class="project-links">
-                <a href="#" class="btn btn-small">Демо</a>
-                <a href="#" class="btn btn-outline btn-small">Код</a>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <div id="project-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div class="modal-body">
+          <div class="modal-images">
+            <div class="main-image">
+              <img
+                id="modal-main-img"
+                src=""
+                alt="Главное изображение проекта"
+              />
+            </div>
+          </div>
+          <div class="modal-info">
+            <h2 id="modal-title">Резюме</h2>
+            <p class="modal-tech" id="modal-tech">HTML, CSS</p>
+            <div class="modal-description">
+              <h3>Описание проекта</h3>
+              <p id="modal-full-description">
+                Полное описание проекта будет здесь...
+              </p>
+            </div>
+            <div class="modal-links">
+              <a href="#" class="btn" id="modal-demo-link">
+                <i class="fas fa-external-link-alt"></i> Живая версия
+              </a>
+              <a href="#" class="btn btn-outline" id="modal-code-link">
+                <i class="fab fa-github"></i> Исходный код
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <section id="contact" class="section contact-section">
       <div class="container">
@@ -108,5 +122,88 @@
         </div>
       </div>
     </section>
+
+    <script>
+      const projectsData = {
+        resume: {
+          title: "Резюме",
+          tech: "HTML, CSS, JavaScript",
+          fullDescription:
+            "Профессиональный шаблон резюме с адаптивным дизайном, который идеально отображается на всех устройствах. Проект включает в себя современный интерфейс с плавными анимациями и интерактивными элементами.",
+          demoLink: "https://sofiia-cloud.github.io/editable-resume-/",
+          codeLink: "https://github.com/Sofiia-cloud/editable-resume-",
+          mainImage: "../images/resume.png",
+        },
+        todo: {
+          title: "Todo-приложение",
+          tech: "JavaScript, LocalStorage",
+          fullDescription:
+            "Приложение для управления задачами с возможностью создания нескольких досок. Данные сохраняются в локальном хранилище браузера.",
+          demoLink: "https://task-management-system-mu-nine.vercel.app/",
+          codeLink: "https://github.com/Sofiia-cloud/task-management-system",
+          mainImage: "../images/tasks.png",
+        },
+        news: {
+          title: "Новостное приложение T-News",
+          tech: "React",
+          fullDescription:
+            "Полнофункциональное веб-приложение для публикации и чтения новостей. Включает систему пользователей, комментарии, лайки и современный интерфейс.",
+          demoLink: "https://t-news-app.vercel.app/",
+          codeLink: "https://github.com/Sofiia-cloud/T-News-app",
+          mainImage: "../images/t-news.png",
+        },
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("project-modal");
+        const closeBtn = document.querySelector(".modal-close");
+        const projectCards = document.querySelectorAll(".project-card-large");
+
+        projectCards.forEach((card) => {
+          card.addEventListener("click", function (e) {
+            if (!e.target.closest(".project-links")) {
+              const projectId = this.getAttribute("data-project");
+              openModal(projectId);
+            }
+          });
+        });
+
+        closeBtn.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            closeModal();
+          }
+        });
+
+        function openModal(projectId) {
+          const project = projectsData[projectId];
+
+          if (project) {
+            document.getElementById("modal-title").textContent = project.title;
+            document.getElementById("modal-tech").textContent = project.tech;
+            document.getElementById("modal-full-description").textContent =
+              project.fullDescription;
+            document.getElementById("modal-demo-link").href = project.demoLink;
+            document.getElementById("modal-code-link").href = project.codeLink;
+            document.getElementById("modal-main-img").src = project.mainImage;
+
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+          }
+        }
+
+        function closeModal() {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+      });
+    </script>
   </body>
 </html>

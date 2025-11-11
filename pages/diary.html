@@ -10,8 +10,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
-  <body>
-    <header>
+  <body class="page">
+    <!-- Ссылка-пропуск для доступности -->
+    <a href="#main-content" class="skip-link visually-hidden"
+      >Перейти к основному содержанию</a
+    >
+
+    <header class="nav">
       <div class="container header-container">
         <div class="header-content">
           <div class="logo">Portfolio</div>
@@ -26,134 +31,155 @@
       </nav>
     </header>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">МОЙ УЧЕБНЫЙ ПРОГРЕСС</h2>
-
+    <main id="main-content" class="main">
+      <section class="section">
         <div class="container">
-          <div class="diary-entries">
+          <h2 class="section-title">МОЙ УЧЕБНЫЙ ПРОГРЕСС</h2>
+
+          <div class="diary-content">
             <div class="timeline">
-              <div class="timeline-item completed">
+              <article class="timeline-item completed">
                 <div class="timeline-date">01 дек</div>
                 <div class="timeline-content">
                   <h4>Верстка макета сайта</h4>
                   <span class="status completed">✓ Завершено</span>
+                  <p>
+                    Создание адаптивного макета с использованием CSS Grid и
+                    Flexbox
+                  </p>
                 </div>
-              </div>
-              <div class="timeline-item completed">
+              </article>
+              <article class="timeline-item completed">
                 <div class="timeline-date">05 дек</div>
                 <div class="timeline-content">
                   <h4>JavaScript основы</h4>
                   <span class="status completed">✓ Завершено</span>
+                  <p>
+                    Изучение основных концепций JavaScript: переменные, функции,
+                    DOM 
+                  </p>
                 </div>
-              </div>
-              <div class="timeline-item in-progress">
+              </article>
+              <article class="timeline-item in-progress">
                 <div class="timeline-date">15 дек</div>
                 <div class="timeline-content">
                   <h4>Работа с формами</h4>
                   <span class="status in-progress">In progress</span>
+                  <p>Валидация форм, обработка событий, доступность</p>
                 </div>
-              </div>
-              <div class="timeline-item in-progress">
+              </article>
+              <article class="timeline-item in-progress">
                 <div class="timeline-date">20 дек</div>
                 <div class="timeline-content">
                   <h4>Адаптивный дизайн</h4>
                   <span class="status in-progress">In progress</span>
+                  <p>Media queries, container queries, responsive images</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="courses-progress">
+              <h3>Текущие курсы</h3>
+              <div id="skills-container">
+                <div class="course-item">
+                  <div class="course-name">
+                    <span>Веб-разработка</span>
+                    <span>90%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                  </div>
+                </div>
+                <div class="course-item">
+                  <div class="course-name">
+                    <span>JavaScript</span>
+                    <span>70%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 70%"></div>
+                  </div>
+                </div>
+                <div class="course-item">
+                  <div class="course-name">
+                    <span>React</span>
+                    <span>50%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 50%"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">ТЕКУЩИЕ КУРСЫ</h2>
-        <div class="courses-progress">
-          <div id="skills-container">
-            <div class="course-item">
-              <div class="course-name">
-                <span>Веб-разработка</span>
-                <span>90%</span>
+              <div
+                id="add-skill-form"
+                class="add-skill-form"
+                style="display: none"
+              >
+                <h3>Добавить новый навык</h3>
+                <div class="form-group">
+                  <label for="skill-name" class="visually-hidden"
+                    >Название навыка</label
+                  >
+                  <input
+                    type="text"
+                    id="skill-name"
+                    placeholder="Название навыка"
+                    class="form-input"
+                    aria-describedby="skill-name-error"
+                  />
+                  <span
+                    id="skill-name-error"
+                    class="error-message visually-hidden"
+                    aria-live="polite"
+                  ></span>
+                </div>
+                <div class="form-group">
+                  <label for="skill-percent" class="visually-hidden"
+                    >Процент освоения</label
+                  >
+                  <input
+                    type="number"
+                    id="skill-percent"
+                    min="0"
+                    max="100"
+                    placeholder="Процент освоения"
+                    class="form-input"
+                    aria-describedby="skill-percent-error"
+                  />
+                  <span
+                    id="skill-percent-error"
+                    class="error-message visually-hidden"
+                    aria-live="polite"
+                  ></span>
+                </div>
+                <div class="form-actions">
+                  <button type="button" id="save-skill" class="btn">
+                    Сохранить
+                  </button>
+                  <button
+                    type="button"
+                    id="cancel-skill"
+                    class="btn btn-outline"
+                  >
+                    Отмена
+                  </button>
+                </div>
               </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
-            </div>
-            <div class="course-item">
-              <div class="course-name">
-                <span>JavaScript</span>
-                <span>70%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 70%"></div>
-              </div>
-            </div>
-            <div class="course-item">
-              <div class="course-name">
-                <span>React</span>
-                <span>50%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 50%"></div>
-              </div>
-            </div>
-          </div>
 
-          <div id="add-skill-form" class="add-skill-form" style="display: none">
-            <h3>Добавить новый навык</h3>
-            <div class="form-group">
-              <input
-                type="text"
-                id="skill-name"
-                placeholder="Название навыка"
-                class="form-input"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="number"
-                id="skill-percent"
-                min="0"
-                max="100"
-                placeholder="Процент освоения"
-                class="form-input"
-              />
-            </div>
-            <div class="form-actions">
-              <button type="button" id="save-skill" class="btn">
-                Сохранить
-              </button>
-              <button type="button" id="cancel-skill" class="btn btn-outline">
-                Отмена
+              <button id="add-skill-btn" class="btn btn-outline">
+                <i class="fas fa-plus"></i> Добавить навык
               </button>
             </div>
           </div>
-
-          <button id="add-skill-btn" class="btn btn-outline">
-            <i class="fas fa-plus"></i> Добавить навык
-          </button>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <section id="contact" class="section contact-section">
+    <footer class="footer">
       <div class="container">
-        <h2 class="section-title">КОНТАКТЫ</h2>
-        <div class="social-links">
-          <a href="https://t.me/sofico6" class="social-link"
-            ><i class="fab fa-telegram"></i
-          ></a>
-          <a href="https://github.com/Sofiia-cloud" class="social-link"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a href="mailto: sofiya.golovushkina@bk.ru" class="social-link"
-            ><i class="fab fa-envelope-open"></i
-          ></a>
-        </div>
+        <p>&copy; 2024. Все права защищены.</p>
       </div>
-    </section>
+    </footer>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -164,6 +190,69 @@
         const skillsContainer = document.getElementById("skills-container");
         const skillNameInput = document.getElementById("skill-name");
         const skillPercentInput = document.getElementById("skill-percent");
+
+        const skillNameError = document.getElementById("skill-name-error");
+        const skillPercentError = document.getElementById(
+          "skill-percent-error"
+        );
+
+        function showError(input, errorElement, message) {
+          errorElement.textContent = message;
+          errorElement.classList.remove("visually-hidden");
+          input.setAttribute("aria-invalid", "true");
+          input.classList.add("error");
+        }
+
+        function hideError(input, errorElement) {
+          errorElement.textContent = "";
+          errorElement.classList.add("visually-hidden");
+          input.setAttribute("aria-invalid", "false");
+          input.classList.remove("error");
+        }
+
+        function validateSkillName() {
+          const value = skillNameInput.value.trim();
+          if (!value) {
+            showError(
+              skillNameInput,
+              skillNameError,
+              "Пожалуйста, введите название навыка"
+            );
+            return false;
+          }
+          if (value.length < 2) {
+            showError(
+              skillNameInput,
+              skillNameError,
+              "Название должно содержать минимум 2 символа"
+            );
+            return false;
+          }
+          hideError(skillNameInput, skillNameError);
+          return true;
+        }
+
+        function validateSkillPercent() {
+          const value = parseInt(skillPercentInput.value);
+          if (isNaN(value)) {
+            showError(
+              skillPercentInput,
+              skillPercentError,
+              "Пожалуйста, введите процент"
+            );
+            return false;
+          }
+          if (value < 0 || value > 100) {
+            showError(
+              skillPercentInput,
+              skillPercentError,
+              "Процент должен быть от 0 до 100"
+            );
+            return false;
+          }
+          hideError(skillPercentInput, skillPercentError);
+          return true;
+        }
 
         addSkillBtn.addEventListener("click", function () {
           addSkillForm.style.display = "block";
@@ -176,21 +265,25 @@
           addSkillBtn.style.display = "block";
           skillNameInput.value = "";
           skillPercentInput.value = "";
+          hideError(skillNameInput, skillNameError);
+          hideError(skillPercentInput, skillPercentError);
         });
 
+        skillNameInput.addEventListener("blur", validateSkillName);
+        skillPercentInput.addEventListener("blur", validateSkillPercent);
+
         saveSkillBtn.addEventListener("click", function () {
+          const isNameValid = validateSkillName();
+          const isPercentValid = validateSkillPercent();
+
+          if (!isNameValid || !isPercentValid) {
+            const firstError = addSkillForm.querySelector(".error");
+            if (firstError) firstError.focus();
+            return;
+          }
+
           const skillName = skillNameInput.value.trim();
           const skillPercent = parseInt(skillPercentInput.value);
-
-          if (!skillName) {
-            alert("Пожалуйста, введите название навыка");
-            return;
-          }
-
-          if (isNaN(skillPercent) || skillPercent < 0 || skillPercent > 100) {
-            alert("Пожалуйста, введите корректный процент (0-100)");
-            return;
-          }
 
           const newSkill = document.createElement("div");
           newSkill.className = "course-item";
@@ -225,20 +318,41 @@
             background: var(--primary);
             color: white;
             padding: 15px 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             z-index: 10000;
             animation: slideIn 0.3s ease;
+            max-width: 300px;
           `;
 
           document.body.appendChild(notification);
 
           setTimeout(() => {
-            notification.remove();
+            notification.style.animation = "slideOut 0.3s ease";
+            setTimeout(() => {
+              notification.remove();
+            }, 300);
           }, 3000);
         }
 
+        // Добавляем стили для ошибок
         const style = document.createElement("style");
         style.textContent = `
+          .error {
+            border-color: #e74c3c !important;
+            background-color: #fdf2f2;
+          }
+          
+          .error-message {
+            color: #e74c3c;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: block;
+          }
+          
+          .error-message.visually-hidden {
+            display: none;
+          }
+          
           @keyframes slideIn {
             from {
               transform: translateX(100%);
@@ -247,6 +361,35 @@
             to {
               transform: translateX(0);
               opacity: 1;
+            }
+          }
+          
+          @keyframes slideOut {
+            from {
+              transform: translateX(0);
+              opacity: 1;
+            }
+            to {
+              transform: translateX(100%);
+              opacity: 0;
+            }
+          }
+          
+          .timeline-item {
+            transition: transform 0.3s ease;
+          }
+          
+          .timeline-item:hover {
+            transform: translateX(5px);
+          }
+          
+          @media (prefers-reduced-motion: reduce) {
+            .timeline-item {
+              transition: none;
+            }
+            
+            .timeline-item:hover {
+              transform: none;
             }
           }
         `;

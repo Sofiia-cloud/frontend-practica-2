@@ -2,7 +2,10 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <title>Мое портфолио</title>
     <link rel="stylesheet" href="./styles/styles.css" />
     <link
@@ -10,130 +13,293 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
-  <body>
-    <header>
+  <body class="page">
+    <!-- Ссылка-пропуск для доступности -->
+    <a href="#main" class="skip-link">Перейти к основному содержимому</a>
+
+    <!-- Sticky-хедер с безопасными областями -->
+    <header class="nav">
       <div class="container header-container">
         <div class="header-content">
           <div class="logo">Portfolio</div>
           <h1>София</h1>
         </div>
       </div>
-      <nav class="nav-links">
-        <a href="index.html">Главная</a>
-        <a href="./pages/projects.html">Проекты</a>
-        <a href="./pages/diary.html">Дневник</a>
-        <a href="./pages/contacts.html">Контакты</a>
+      <nav class="nav-links" aria-label="Основная навигация">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="./pages/projects.html" class="nav-link">Проекты</a>
+        <a href="./pages/diary.html" class="nav-link">Дневник</a>
+        <a href="./pages/contacts.html" class="nav-link">Контакты</a>
       </nav>
     </header>
 
-    <section id="about" class="section">
-      <div class="container">
-        <div class="about-content">
-          <div class="avatar-image">
-            <img src="./images/photo.png" alt="Фото" />
-          </div>
-          <div class="about-text">
-            <p>
-              Привет! Я студент группы ЭФБО-02-24. Увлекаюсь веб-разработкой
-            </p>
-            <div>
-              <a href="./assets/resume.pdf" class="btn">Скачать резюме</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section skills-section">
-      <div class="container">
-        <h2 class="section-title">МОИ НАВЫКИ</h2>
-        <div class="skills-container">
-          <div class="skill-category">
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>Python</span>
-                <span>70%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 70%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>JavaScript</span>
-                <span>80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>HTML/CSS</span>
-                <span>90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name">
-                <span>React</span>
-                <span>90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
+    <main id="main" class="main">
+      <!-- Секция "Обо мне" с адаптивной картинкой -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="about-content">
+            <figure class="hero_image">
+              <picture>
+                <!-- Современные форматы с запасным JPEG -->
+                <source
+                  type="image/avif"
+                  srcset="
+                    images/photo-150.avif 150w,
+                    images/photo-200.avif 200w,
+                    images/photo-300.avif 300w
+                  "
+                  sizes="(max-width: 768px) 150px, 200px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    images/photo-150.webp 150w,
+                    images/photo-200.webp 200w,
+                    images/photo-300.webp 300w
+                  "
+                  sizes="(max-width: 768px) 150px, 200px"
+                />
+                <!-- Запасной JPEG -->
+                <img
+                  class="hero_photo"
+                  src="./images/photo.png"
+                  srcset="
+                    images/photo-150.jpg 150w,
+                    images/photo-200.jpg 200w,
+                    images/photo-300.jpg 300w
+                  "
+                  sizes="(max-width: 768px) 150px, 200px"
+                  width="200"
+                  height="200"
+                  alt="Портрет"
+                  loading="eager"
+                  fetchpriority="high"
+                />
+              </picture>
+            </figure>
+            <div class="about-text">
+              <h2 class="about-title">Обо мне</h2>
+              <p>
+                Привет! Я студент группы ЭФБО-02-24. Увлекаюсь веб-разработкой,
+                изучаю современные технологии и создаю интересные проекты.
+              </p>
+              <div class="btn-container">
+                <a href="./assets/resume.pdf" class="btn" download>
+                  <i class="fas fa-download" aria-hidden="true"></i>
+                  Скачать резюме
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="projects" class="section">
-      <div class="container">
-        <h2 class="section-title">ЛУЧШИЕ ПРОЕКТЫ</h2>
-        <div class="projects-container">
-          <div class="project-card">
-            <div class="project-image">
-              <img src="./images/resume.png" alt="Резюме" />
+      <!-- Секция навыков -->
+      <section id="skills" class="section skills-section">
+        <div class="container">
+          <h2 class="section-title">МОИ НАВЫКИ</h2>
+          <div class="skills-container">
+            <div class="skill-category">
+              <h3><i class="fas fa-code" aria-hidden="true"></i>Frontend</h3>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>HTML/CSS</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>JavaScript</span>
+                  <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>React</span>
+                  <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div class="project-card">
-            <div class="project-image">
-              <img
-                src="./images/t-news.png"
-                alt="Новостное приложение T-News"
-              />
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img src="./images/tasks.png" alt="Система управления задачами" />
+            <div class="skill-category">
+              <h3><i class="fas fa-server" aria-hidden="true"></i>Backend</h3>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>Python</span>
+                  <span>70%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>Node.js</span>
+                  <span>75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">
+                  <span>Базы данных</span>
+                  <span>65%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 65%"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact" class="section contact-section">
-      <div class="container">
-        <h2 class="section-title">КОНТАКТЫ</h2>
+      <!-- Секция проектов с адаптивной Grid-сеткой и контейнерными запросами -->
+      <section id="projects" class="section projects-area">
+        <div class="container">
+          <h2 class="section-title">ЛУЧШИЕ ПРОЕКТЫ</h2>
+          <div class="projects-preview_grid">
+            <article class="project-card">
+              <div class="project-image">
+                <img
+                  src="./images/resume.png"
+                  alt="Адаптивное резюме с современным дизайном"
+                  width="400"
+                  height="300"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-content">
+                <h3 class="project-card_title">Адаптивное резюме</h3>
+                <p class="project-card_description">
+                  Современное адаптивное резюме с использованием Grid и Flexbox
+                </p>
+                <div class="project-tech">HTML, CSS, JavaScript</div>
+                <div class="project-links">
+                  <a href="#" class="btn btn-small">
+                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                    Демо
+                  </a>
+                  <a href="#" class="btn btn-small btn-outline">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    Код
+                  </a>
+                </div>
+              </div>
+            </article>
 
-        <div class="social-links">
-          <a href="https://t.me/sofico6" class="social-link"
-            ><i class="fab fa-telegram"></i
-          ></a>
-          <a href="https://github.com/Sofiia-cloud" class="social-link"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a href="mailto: sofiya.golovushkina@bk.ru" class="social-link"
-            ><i class="fab fa-envelope-open"></i
-          ></a>
+            <article class="project-card">
+              <div class="project-image">
+                <img
+                  src="./images/t-news.png"
+                  alt="Новостное приложение T-News с лентой статей"
+                  width="400"
+                  height="300"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-content">
+                <h3 class="project-card_title">T-News</h3>
+                <p class="project-card_description">
+                  Новостное приложение с адаптивным дизайном и фильтрацией
+                </p>
+                <div class="project-tech">React, API, CSS Grid</div>
+                <div class="project-links">
+                  <a href="#" class="btn btn-small">
+                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                    Демо
+                  </a>
+                  <a href="#" class="btn btn-small btn-outline">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    Код
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-image">
+                <img
+                  src="./images/tasks.png"
+                  alt="Система управления задачами с канбан-доской"
+                  width="400"
+                  height="300"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-content">
+                <h3 class="project-card_title">Task Manager</h3>
+                <p class="project-card_description">
+                  Система управления задачами с drag-and-drop интерфейсом
+                </p>
+                <div class="project-tech">JavaScript, LocalStorage, CSS</div>
+                <div class="project-links">
+                  <a href="#" class="btn btn-small">
+                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                    Демо
+                  </a>
+                  <a href="#" class="btn btn-small btn-outline">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    Код
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
+      </section>
+
+      <!-- Секция контактов -->
+      <section id="contact" class="section contact-section">
+        <div class="container">
+          <h2 class="section-title">КОНТАКТЫ</h2>
+          <p>Свяжитесь со мной для сотрудничества или обсуждения проектов</p>
+
+          <div class="social-links">
+            <a
+              href="https://t.me/sofico6"
+              class="social-link"
+              aria-label="Telegram"
+            >
+              <i class="fab fa-telegram" aria-hidden="true"></i>
+              <span class="visually-hidden">Telegram</span>
+            </a>
+            <a
+              href="https://github.com/Sofiia-cloud"
+              class="social-link"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github" aria-hidden="true"></i>
+              <span class="visually-hidden">GitHub</span>
+            </a>
+            <a
+              href="mailto:sofiya.golovushkina@bk.ru"
+              class="social-link"
+              aria-label="Email"
+            >
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <span class="visually-hidden">Email</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Футер с безопасными областями -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024. Все права защищены.</p>
       </div>
-    </section>
+    </footer>
   </body>
 </html>

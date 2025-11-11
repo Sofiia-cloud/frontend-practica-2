@@ -415,7 +415,6 @@ footer {
   font-size: 14px;
 }
 
-
 .projects-filter {
   display: flex;
   justify-content: center;
@@ -482,7 +481,6 @@ footer {
   font-size: 14px;
 }
 
-
 .diary-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -548,7 +546,6 @@ footer {
   margin-bottom: 8px;
   font-weight: 500;
 }
-
 
 .contact-content {
   display: grid;
@@ -628,7 +625,6 @@ footer {
   justify-content: center;
 }
 
-
 .nav-links a.active {
   color: var(--accent);
 }
@@ -636,7 +632,6 @@ footer {
 .nav-links a.active:after {
   width: 100%;
 }
-
 
 @media (max-width: 992px) {
   .diary-content,
@@ -915,7 +910,6 @@ footer {
   gap: 8px;
 }
 
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -936,7 +930,6 @@ footer {
   }
 }
 
-
 .project-card-large {
   cursor: pointer;
   transition: all 0.3s;
@@ -954,7 +947,6 @@ footer {
 .project-links .btn {
   pointer-events: all;
 }
-
 
 @media (max-width: 992px) {
   .modal-body {
@@ -1009,5 +1001,562 @@ footer {
 
   .main-image {
     height: 200px;
+  }
+}
+
+/* ===== СТИЛИ ИЗ ПРАКТИЧЕСКОГО ЗАНЯТИЯ №15 ===== */
+
+/* Базовые настройки из практического занятия */
+:root {
+  color-scheme: light dark;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-2xl: 3rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.page {
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+/* Ссылка-пропуск для доступности */
+.skip-link {
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-start: -100%;
+  z-index: 10000;
+  padding: 0.5rem 0.75rem;
+  background: #111;
+  color: #fff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  inset-block-start: 1rem;
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Видимый фокус для всех интерактивных элементов */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+a,
+button,
+input,
+textarea {
+  outline-offset: 2px;
+}
+
+/* Крупные цели на устройствах с pointer:coarse */
+@media (pointer: coarse) {
+  .nav-links a,
+  .btn,
+  .social-link,
+  .filter-btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1rem;
+  }
+
+  .social-link {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Sticky-хедер с безопасными областями */
+.nav {
+  position: sticky;
+  top: 0;
+  padding-block-start: calc(0.75rem + env(safe-area-inset-top));
+  padding-block-end: 0.75rem;
+  padding-inline-start: calc(var(--space-md, 1rem) + env(safe-area-inset-left));
+  padding-inline-end: calc(var(--space-md, 1rem) + env(safe-area-inset-right));
+  background: white;
+  color: var(--text);
+  z-index: 100;
+  isolation: isolate;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Адаптивная герой-картинка */
+.hero_image {
+  flex-shrink: 0;
+}
+
+.hero_photo {
+  inline-size: clamp(120px, 22vw, 200px);
+  block-size: auto;
+  border-radius: 10%;
+  object-fit: cover;
+  border: 4px solid var(--primary);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Адаптивная Grid-сетка для проектов */
+.projects-preview_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  gap: var(--space-lg, 1.5rem);
+  margin-block: var(--space-2xl, 3rem);
+}
+
+.project-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.project-card_title,
+.project-card_description {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+/* Контейнерные запросы для проектов */
+@supports (container-type: inline-size) {
+  .projects-area {
+    container-type: inline-size;
+    container-name: projects;
+  }
+
+  @container projects (min-width: 640px) {
+    .projects-preview_grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @container projects (min-width: 960px) {
+    .projects-preview_grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+/* Плавные размеры с clamp() */
+.section-title {
+  font-size: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
+  margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+.about-title {
+  font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.container {
+  padding-inline: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+}
+
+/* Доступность: скрытые элементы */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Уважение к снижению движения */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .project-card:hover,
+  .btn:hover,
+  .social-link:hover,
+  .nav-links a:hover {
+    transform: none;
+  }
+}
+
+/* Повышенный контраст */
+@media (prefers-contrast: more) {
+  .btn,
+  .social-link,
+  .project-card {
+    border: 2px solid currentColor;
+  }
+
+  .skill-progress {
+    background: var(--accent);
+  }
+}
+
+/* Безопасные области в футере */
+.footer {
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  background: var(--secondary);
+  color: white;
+  text-align: center;
+  padding: 2rem 0 1.5rem;
+}
+
+.footer-info {
+  opacity: 0.8;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Улучшения для доступности и UX */
+.btn-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary);
+  font-size: 1rem;
+  min-height: 44px;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  min-height: 36px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .skills-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-preview_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding-inline: 1rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+/* Улучшенные стили для контраста и читаемости */
+.skill-category h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.project-tech {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 1rem;
+  display: inline-block;
+}
+
+/* Гарантия отсутствия горизонтального скролла */
+body {
+  overflow-x: hidden;
+}
+
+/* Улучшения для семантики и доступности */
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after {
+  width: 100%;
+}
+
+/* ===== ИСПРАВЛЕНИЯ ДЛЯ STICKY-ХЕДЕРА ===== */
+
+/* Перемещаем sticky-хедер на уровень body */
+body {
+  position: relative;
+}
+
+/* Основные исправления для sticky-хедера */
+.nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Убираем старые стили header которые могут конфликтовать */
+header:not(.nav) {
+  position: relative !important;
+}
+
+/* Гарантируем что main начинается после хедера */
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Улучшаем видимость sticky-хедера */
+.nav {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Убедимся что контент не перекрывается хедером */
+.section:first-of-type {
+  padding-top: 120px;
+}
+
+/* Адаптивные отступы для мобильных */
+@media (max-width: 768px) {
+  .section:first-of-type {
+    padding-top: 140px;
+  }
+
+  .nav {
+    padding-block-start: calc(0.5rem + env(safe-area-inset-top));
+  }
+}
+
+/* Дополнительные гарантии для sticky поведения */
+.nav {
+  will-change: transform;
+}
+
+/* Улучшаем производительность */
+.nav {
+  transform: translateZ(0);
+}
+
+/* Исправляем возможные конфликты z-index */
+.modal {
+  z-index: 10000;
+}
+
+.modal-content {
+  z-index: 10001;
+}
+
+/* Гарантируем что хедер всегда поверх контента */
+.nav {
+  z-index: 1000;
+}
+
+.main {
+  z-index: 1;
+}
+
+/* Дополнительные стили для улучшений */
+.error {
+  border-color: #e74c3c !important;
+  background-color: #fdf2f2;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.error-message.visually-hidden {
+  display: none;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  z-index: 10000;
+  animation: slideIn 0.3s ease;
+  max-width: 300px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Контейнерные запросы для проектов */
+@supports (container-type: inline-size) {
+  .projects-area {
+    container-type: inline-size;
+    container-name: projects;
+  }
+
+  @container projects (min-width: 640px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @container projects (min-width: 960px) {
+    .projects-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+/* Улучшения для доступности */
+@media (pointer: coarse) {
+  .filter-btn,
+  .project-card-large {
+    min-height: 44px;
+  }
+}
+
+/* Поддержка prefers-contrast */
+@media (prefers-contrast: more) {
+  .btn,
+  .filter-btn {
+    border-width: 2px;
+  }
+
+  .skill-progress {
+    background: var(--accent);
   }
 }

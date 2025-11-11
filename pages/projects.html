@@ -10,8 +10,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
-  <body>
-    <header>
+  <body class="page">
+    <!-- Ссылка-пропуск для доступности -->
+    <a href="#main-content" class="skip-link visually-hidden"
+      >Перейти к основному содержанию</a
+    >
+
+    <header class="nav">
       <div class="container header-container">
         <div class="header-content">
           <div class="logo">Portfolio</div>
@@ -26,182 +31,314 @@
       </nav>
     </header>
 
-    <section class="section">
+    <main id="main-content" class="main">
+      <section class="section projects-area">
+        <div class="container">
+          <h2 class="section-title">МОИ ПРОЕКТЫ</h2>
+
+          <div
+            class="projects-filter"
+            role="tablist"
+            aria-label="Фильтры проектов"
+          >
+            <button
+              class="filter-btn active"
+              role="tab"
+              aria-selected="true"
+              data-filter="all"
+            >
+              Все
+            </button>
+            <button
+              class="filter-btn"
+              role="tab"
+              aria-selected="false"
+              data-filter="html"
+            >
+              HTML
+            </button>
+            <button
+              class="filter-btn"
+              role="tab"
+              aria-selected="false"
+              data-filter="javascript"
+            >
+              JavaScript
+            </button>
+            <button
+              class="filter-btn"
+              role="tab"
+              aria-selected="false"
+              data-filter="react"
+            >
+              React
+            </button>
+          </div>
+
+          <div class="projects-grid" id="projects-container">
+            <article
+              class="project-card-large"
+              data-project="resume"
+              data-category="html"
+            >
+              <div class="project-image">
+                <picture>
+                  <source
+                    srcset="
+                      ../images/resume-320.webp 320w,
+                      ../images/resume-480.webp 480w,
+                      ../images/resume-640.webp 640w,
+                      ../images/resume-800.webp 800w
+                    "
+                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    type="image/webp"
+                  />
+                  <img
+                    src="../images/resume-640.jpg"
+                    srcset="
+                      ../images/resume-320.jpg 320w,
+                      ../images/resume-480.jpg 480w,
+                      ../images/resume-640.jpg 640w,
+                      ../images/resume-800.jpg 800w
+                    "
+                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    alt="Скриншот проекта Резюме - адаптивный макет с современным дизайном"
+                    width="400"
+                    height="250"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </div>
+              <div class="project-content">
+                <h3>Резюме</h3>
+                <p class="project-tech">HTML, CSS, JavaScript</p>
+                <p class="project-description">
+                  Профессиональный шаблон резюме с адаптивным дизайном и
+                  современным интерфейсом.
+                </p>
+                <div class="project-links">
+                  <a
+                    href="https://sofiia-cloud.github.io/editable-resume-/"
+                    class="btn btn-small"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <i class="fas fa-external-link-alt"></i>Демо
+                  </a>
+                  <a
+                    href="https://github.com/Sofiia-cloud/editable-resume-"
+                    class="btn btn-small btn-outline"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <i class="fab fa-github"></i>Код
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="project-card-large"
+              data-project="todo"
+              data-category="javascript"
+            >
+              <div class="project-image">
+                <picture>
+                  <source
+                    srcset="
+                      ../images/tasks-320.webp 320w,
+                      ../images/tasks-480.webp 480w,
+                      ../images/tasks-640.webp 640w,
+                      ../images/tasks-800.webp 800w
+                    "
+                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    type="image/webp"
+                  />
+                  <img
+                    src="../images/tasks-640.jpg"
+                    srcset="
+                      ../images/tasks-320.jpg 320w,
+                      ../images/tasks-480.jpg 480w,
+                      ../images/tasks-640.jpg 640w,
+                      ../images/tasks-800.jpg 800w
+                    "
+                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    alt="Скриншот Todo-приложения - интерфейс управления задачами"
+                    width="400"
+                    height="250"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </div>
+              <div class="project-content">
+                <h3>Todo-приложение</h3>
+                <p class="project-tech">JavaScript, LocalStorage</p>
+                <p class="project-description">
+                  Приложение для управления задачами с возможностью создания
+                  нескольких досок и локальным хранением данных.
+                </p>
+                <div class="project-links">
+                  <a
+                    href="https://task-management-system-mu-nine.vercel.app/"
+                    class="btn btn-small"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <i class="fas fa-external-link-alt"></i>Демо
+                  </a>
+                  <a
+                    href="https://github.com/Sofiia-cloud/task-management-system"
+                    class="btn btn-small btn-outline"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <i class="fab fa-github"></i>Код
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="project-card-large"
+              data-project="news"
+              data-category="react"
+            >
+              <div class="project-image">
+                <picture>
+                  <source
+                    srcset="
+                      ../images/t-news-320.webp 320w,
+                      ../images/t-news-480.webp 480w,
+                      ../images/t-news-640.webp 640w,
+                      ../images/t-news-800.webp 800w
+                    "
+                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    type="image/webp"
+                  />
+                  <img
+                    src="../images/t-news-640.jpg"
+                    srcset="
+                      ../images/t-news-320.jpg 320w,
+                      ../images/t-news-480.jpg 480w,
+                      ../images/t-news-640.jpg 640w,
+                      ../images/t-news-800.jpg 800w
+                    "
+                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    alt="Скриншот новостного приложения T-News - современный интерфейс с лентой новостей"
+                    width="400"
+                    height="250"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </div>
+              <div class="project-content">
+                <h3>Новостное приложение T-News</h3>
+                <p class="project-tech">React, API</p>
+                <p class="project-description">
+                  Полнофункциональное веб-приложение для публикации и чтения
+                  новостей с системой пользователей и комментариев.
+                </p>
+                <div class="project-links">
+                  <a
+                    href="https://t-news-app.vercel.app/"
+                    class="btn btn-small"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <i class="fas fa-external-link-alt"></i>Демо
+                  </a>
+                  <a
+                    href="https://github.com/Sofiia-cloud/T-News-app"
+                    class="btn btn-small btn-outline"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <i class="fab fa-github"></i>Код
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
       <div class="container">
-        <h2 class="section-title">МОИ ПРОЕКТЫ</h2>
-
-        <div class="projects-filter">
-          <button class="filter-btn active">Все</button>
-          <button class="filter-btn">HTML</button>
-          <button class="filter-btn">JavaScript</button>
-          <button class="filter-btn">React</button>
-        </div>
-
-        <div class="projects-grid">
-          <div class="project-card-large" data-project="resume">
-            <div class="project-image">
-              <img src="../images/resume.png" alt="Резюме" />
-            </div>
-            <div class="project-content">
-              <h3>Резюме</h3>
-              <p class="project-tech">HTML, CSS</p>
-            </div>
-          </div>
-
-          <div class="project-card-large" data-project="todo">
-            <div class="project-image">
-              <img src="../images/tasks.png" alt="Todo-приложение" />
-            </div>
-            <div class="project-content">
-              <h3>Todo-приложение</h3>
-              <p class="project-tech">JavaScript</p>
-            </div>
-          </div>
-
-          <div class="project-card-large" data-project="news">
-            <div class="project-image">
-              <img src="../images/t-news.png" alt="Новостное приложение" />
-            </div>
-            <div class="project-content">
-              <h3>Новостное приложение</h3>
-              <p class="project-tech">React</p>
-            </div>
-          </div>
-        </div>
+        <p>&copy; 2024. Все права защищены.</p>
       </div>
-    </section>
-
-    <div id="project-modal" class="modal">
-      <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <div class="modal-body">
-          <div class="modal-images">
-            <div class="main-image">
-              <img
-                id="modal-main-img"
-                src=""
-                alt="Главное изображение проекта"
-              />
-            </div>
-          </div>
-          <div class="modal-info">
-            <h2 id="modal-title">Резюме</h2>
-            <p class="modal-tech" id="modal-tech">HTML, CSS</p>
-            <div class="modal-description">
-              <h3>Описание проекта</h3>
-              <p id="modal-full-description">
-                Полное описание проекта будет здесь...
-              </p>
-            </div>
-            <div class="modal-links">
-              <a href="#" class="btn" id="modal-demo-link">
-                <i class="fas fa-external-link-alt"></i> Живая версия
-              </a>
-              <a href="#" class="btn btn-outline" id="modal-code-link">
-                <i class="fab fa-github"></i> Исходный код
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section id="contact" class="section contact-section">
-      <div class="container">
-        <h2 class="section-title">КОНТАКТЫ</h2>
-        <div class="social-links">
-          <a href="https://t.me/sofico6" class="social-link"
-            ><i class="fab fa-telegram"></i
-          ></a>
-          <a href="https://github.com/Sofiia-cloud" class="social-link"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a href="mailto: sofiya.golovushkina@bk.ru" class="social-link"
-            ><i class="fab fa-envelope-open"></i
-          ></a>
-        </div>
-      </div>
-    </section>
+    </footer>
 
     <script>
-      const projectsData = {
-        resume: {
-          title: "Резюме",
-          tech: "HTML, CSS, JavaScript",
-          fullDescription:
-            "Профессиональный шаблон резюме с адаптивным дизайном, который идеально отображается на всех устройствах. Проект включает в себя современный интерфейс с плавными анимациями и интерактивными элементами.",
-          demoLink: "https://sofiia-cloud.github.io/editable-resume-/",
-          codeLink: "https://github.com/Sofiia-cloud/editable-resume-",
-          mainImage: "../images/resume.png",
-        },
-        todo: {
-          title: "Todo-приложение",
-          tech: "JavaScript, LocalStorage",
-          fullDescription:
-            "Приложение для управления задачами с возможностью создания нескольких досок. Данные сохраняются в локальном хранилище браузера.",
-          demoLink: "https://task-management-system-mu-nine.vercel.app/",
-          codeLink: "https://github.com/Sofiia-cloud/task-management-system",
-          mainImage: "../images/tasks.png",
-        },
-        news: {
-          title: "Новостное приложение T-News",
-          tech: "React",
-          fullDescription:
-            "Полнофункциональное веб-приложение для публикации и чтения новостей. Включает систему пользователей, комментарии, лайки и современный интерфейс.",
-          demoLink: "https://t-news-app.vercel.app/",
-          codeLink: "https://github.com/Sofiia-cloud/T-News-app",
-          mainImage: "../images/t-news.png",
-        },
-      };
-
       document.addEventListener("DOMContentLoaded", function () {
-        const modal = document.getElementById("project-modal");
-        const closeBtn = document.querySelector(".modal-close");
-        const projectCards = document.querySelectorAll(".project-card-large");
+        // Фильтрация проектов
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const projects = document.querySelectorAll(".project-card-large");
 
-        projectCards.forEach((card) => {
-          card.addEventListener("click", function (e) {
-            if (!e.target.closest(".project-links")) {
-              const projectId = this.getAttribute("data-project");
-              openModal(projectId);
-            }
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const filter = this.getAttribute("data-filter");
+
+            // Обновляем состояние кнопок
+            filterBtns.forEach((b) => {
+              b.classList.remove("active");
+              b.setAttribute("aria-selected", "false");
+            });
+            this.classList.add("active");
+            this.setAttribute("aria-selected", "true");
+
+            // Фильтруем проекты
+            projects.forEach((project) => {
+              if (
+                filter === "all" ||
+                project.getAttribute("data-category") === filter
+              ) {
+                project.style.display = "block";
+                setTimeout(() => {
+                  project.style.opacity = "1";
+                  project.style.transform = "translateY(0)";
+                }, 50);
+              } else {
+                project.style.opacity = "0";
+                project.style.transform = "translateY(20px)";
+                setTimeout(() => {
+                  project.style.display = "none";
+                }, 300);
+              }
+            });
           });
         });
 
-        closeBtn.addEventListener("click", closeModal);
+        // Анимация появления проектов
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
 
-        modal.addEventListener("click", function (e) {
-          if (e.target === modal) {
-            closeModal();
-          }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        }, observerOptions);
+
+        projects.forEach((project) => {
+          project.style.opacity = "0";
+          project.style.transform = "translateY(20px)";
+          project.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(project);
         });
 
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape") {
-            closeModal();
-          }
-        });
-
-        function openModal(projectId) {
-          const project = projectsData[projectId];
-
-          if (project) {
-            document.getElementById("modal-title").textContent = project.title;
-            document.getElementById("modal-tech").textContent = project.tech;
-            document.getElementById("modal-full-description").textContent =
-              project.fullDescription;
-            document.getElementById("modal-demo-link").href = project.demoLink;
-            document.getElementById("modal-code-link").href = project.codeLink;
-            document.getElementById("modal-main-img").src = project.mainImage;
-
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden";
-          }
-        }
-
-        function closeModal() {
-          modal.style.display = "none";
-          document.body.style.overflow = "auto";
+        // Обработка prefers-reduced-motion
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          projects.forEach((project) => {
+            project.style.transition = "none";
+          });
         }
       });
     </script>

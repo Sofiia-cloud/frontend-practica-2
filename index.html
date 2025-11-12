@@ -171,13 +171,33 @@
           <div class="projects-preview_grid">
             <article class="project-card">
               <div class="project-image">
-                <img
-                  src="./images/resume.png"
-                  alt="Адаптивное резюме с современным дизайном"
-                  width="400"
-                  height="300"
-                  loading="lazy"
-                />
+                <picture>
+                  <!-- WebP формат для хорошей поддержки -->
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./images/resume-480.webp 480w,
+                      ./images/resume-640.webp 640w,
+                      ./images/resume-800.webp 800w
+                    "
+                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
+                  />
+                  <!-- Fallback PNG для старых браузеров -->
+                  <img
+                    src="./images/resume-640.jpg"
+                    srcset="
+                      ./images/resume-480.jpg 480w,
+                      ./images/resume-640.jpg 640w,
+                      ./images/resume-800.jpg 800w
+                    "
+                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
+                    alt="Адаптивное резюме с современным дизайном"
+                    width="640"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
               <div class="project-content">
                 <h3 class="project-card_title">Адаптивное резюме</h3>
@@ -186,11 +206,21 @@
                 </p>
                 <div class="project-tech">HTML, CSS, JavaScript</div>
                 <div class="project-links">
-                  <a href="#" class="btn btn-small">
+                  <a
+                    href="https://sofiia-cloud.github.io/editable-resume-/"
+                    class="btn btn-small"
+                    target="_blank"
+                    rel="noopener"
+                  >
                     <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                     Демо
                   </a>
-                  <a href="#" class="btn btn-small btn-outline">
+                  <a
+                    href="https://github.com/Sofiia-cloud/editable-resume-"
+                    class="btn btn-small btn-outline"
+                    target="_blank"
+                    rel="noopener"
+                  >
                     <i class="fab fa-github" aria-hidden="true"></i>
                     Код
                   </a>
@@ -200,13 +230,33 @@
 
             <article class="project-card">
               <div class="project-image">
-                <img
-                  src="./images/t-news.png"
-                  alt="Новостное приложение T-News с лентой статей"
-                  width="400"
-                  height="300"
-                  loading="lazy"
-                />
+                <picture>
+                  <!-- WebP формат -->
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./images/t-news-480.webp 480w,
+                      ./images/t-news-640.webp 640w,
+                      ./images/t-news-800.webp 800w
+                    "
+                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
+                  />
+                  <!-- Fallback PNG -->
+                  <img
+                    src="./images/t-news-640.jpg"
+                    srcset="
+                      ./images/t-news-480.jpg 480w,
+                      ./images/t-news-640.jpg 640w,
+                      ./images/t-news-800.jpg 800w
+                    "
+                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
+                    alt="Новостное приложение T-News с лентой статей"
+                    width="640"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
               <div class="project-content">
                 <h3 class="project-card_title">T-News</h3>
@@ -215,11 +265,21 @@
                 </p>
                 <div class="project-tech">React, API, CSS Grid</div>
                 <div class="project-links">
-                  <a href="#" class="btn btn-small">
+                  <a
+                    href="https://t-news-app.vercel.app/"
+                    class="btn btn-small"
+                    target="_blank"
+                    rel="noopener"
+                  >
                     <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                     Демо
                   </a>
-                  <a href="#" class="btn btn-small btn-outline">
+                  <a
+                    href="https://github.com/Sofiia-cloud/T-News-app"
+                    class="btn btn-small btn-outline"
+                    target="_blank"
+                    rel="noopener"
+                  >
                     <i class="fab fa-github" aria-hidden="true"></i>
                     Код
                   </a>
@@ -229,13 +289,33 @@
 
             <article class="project-card">
               <div class="project-image">
-                <img
-                  src="./images/tasks.png"
-                  alt="Система управления задачами с канбан-доской"
-                  width="400"
-                  height="300"
-                  loading="lazy"
-                />
+                <picture>
+                  <!-- WebP формат -->
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./images/tasks-480.webp 480w,
+                      ./images/tasks-640.webp 640w,
+                      ./images/tasks-800.webp 800w
+                    "
+                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
+                  />
+                  <!-- Fallback PNG -->
+                  <img
+                    src="./images/tasks-640.jpg"
+                    srcset="
+                      ./images/tasks-480.jpg 480w,
+                      ./images/tasks-640.jpg 640w,
+                      ./images/tasks-800.jpg 800w
+                    "
+                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
+                    alt="Система управления задачами с канбан-доской"
+                    width="640"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
               <div class="project-content">
                 <h3 class="project-card_title">Task Manager</h3>
@@ -244,11 +324,21 @@
                 </p>
                 <div class="project-tech">JavaScript, LocalStorage, CSS</div>
                 <div class="project-links">
-                  <a href="#" class="btn btn-small">
+                  <a
+                    href="https://task-management-system-mu-nine.vercel.app/"
+                    class="btn btn-small"
+                    target="_blank"
+                    rel="noopener"
+                  >
                     <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                     Демо
                   </a>
-                  <a href="#" class="btn btn-small btn-outline">
+                  <a
+                    href="https://github.com/Sofiia-cloud/task-management-system"
+                    class="btn btn-small btn-outline"
+                    target="_blank"
+                    rel="noopener"
+                  >
                     <i class="fab fa-github" aria-hidden="true"></i>
                     Код
                   </a>

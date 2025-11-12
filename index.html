@@ -2,10 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Мое портфолио</title>
     <link rel="stylesheet" href="./styles/styles.css" />
     <link
@@ -17,7 +14,7 @@
     <!-- Ссылка-пропуск для доступности -->
     <a href="#main" class="skip-link">Перейти к основному содержимому</a>
 
-    <!-- Sticky-хедер с безопасными областями -->
+    <!-- Sticky-хедер -->
     <header class="nav">
       <div class="container header-container">
         <div class="header-content">
@@ -40,7 +37,7 @@
           <div class="about-content">
             <figure class="hero_image">
               <picture>
-                <!-- Современные форматы с запасным JPEG -->
+                <!-- AVIF для самых современных браузеров -->
                 <source
                   type="image/avif"
                   srcset="
@@ -50,6 +47,7 @@
                   "
                   sizes="(max-width: 768px) 150px, 200px"
                 />
+                <!-- WebP для современных браузеров -->
                 <source
                   type="image/webp"
                   srcset="
@@ -59,19 +57,19 @@
                   "
                   sizes="(max-width: 768px) 150px, 200px"
                 />
-                <!-- Запасной JPEG -->
+                <!-- JPEG для старых браузеров -->
                 <img
-                  class="hero_photo"
-                  src="./images/photo.png"
+                  class="hero_photo responsive-image"
+                  src="images/photo-200.jpg"
                   srcset="
                     images/photo-150.jpg 150w,
                     images/photo-200.jpg 200w,
                     images/photo-300.jpg 300w
                   "
                   sizes="(max-width: 768px) 150px, 200px"
+                  alt="Портрет"
                   width="200"
                   height="200"
-                  alt="Портрет"
                   loading="eager"
                   fetchpriority="high"
                 />
@@ -164,38 +162,42 @@
         </div>
       </section>
 
-      <!-- Секция проектов с адаптивной Grid-сеткой и контейнерными запросами -->
+      <!-- Секция проектов с адаптивной Grid-сеткой -->
       <section id="projects" class="section projects-area">
         <div class="container">
           <h2 class="section-title">ЛУЧШИЕ ПРОЕКТЫ</h2>
-          <div class="projects-preview_grid">
+          <div class="projects-preview_grid gallery">
             <article class="project-card">
               <div class="project-image">
                 <picture>
-                  <!-- WebP формат для хорошей поддержки -->
+                  <!-- Разные изображения для разных экранов в WebP -->
                   <source
+                    media="(min-width: 1200px)"
+                    srcset="./images/resume-800.webp"
                     type="image/webp"
-                    srcset="
-                      ./images/resume-480.webp 480w,
-                      ./images/resume-640.webp 640w,
-                      ./images/resume-800.webp 800w
-                    "
-                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
                   />
-                  <!-- Fallback PNG для старых браузеров -->
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="./images/resume-640.webp"
+                    type="image/webp"
+                  />
+                  <source srcset="./images/resume-480.webp" type="image/webp" />
+                  <!-- Разные изображения для разных экранов в JPEG -->
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="./images/resume-800.jpg"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="./images/resume-640.jpg"
+                  />
                   <img
-                    src="./images/resume-640.jpg"
-                    srcset="
-                      ./images/resume-480.jpg 480w,
-                      ./images/resume-640.jpg 640w,
-                      ./images/resume-800.jpg 800w
-                    "
-                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
+                    class="responsive-image gallery_image"
+                    src="./images/resume-480.jpg"
                     alt="Адаптивное резюме с современным дизайном"
+                    loading="lazy"
                     width="640"
                     height="450"
-                    loading="lazy"
-                    decoding="async"
                   />
                 </picture>
               </div>
@@ -231,30 +233,34 @@
             <article class="project-card">
               <div class="project-image">
                 <picture>
-                  <!-- WebP формат -->
+                  <!-- WebP версии -->
                   <source
+                    media="(min-width: 1200px)"
+                    srcset="./images/t-news-800.webp"
                     type="image/webp"
-                    srcset="
-                      ./images/t-news-480.webp 480w,
-                      ./images/t-news-640.webp 640w,
-                      ./images/t-news-800.webp 800w
-                    "
-                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
                   />
-                  <!-- Fallback PNG -->
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="./images/t-news-640.webp"
+                    type="image/webp"
+                  />
+                  <source srcset="./images/t-news-480.webp" type="image/webp" />
+                  <!-- JPEG версии -->
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="./images/t-news-800.jpg"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="./images/t-news-640.jpg"
+                  />
                   <img
-                    src="./images/t-news-640.jpg"
-                    srcset="
-                      ./images/t-news-480.jpg 480w,
-                      ./images/t-news-640.jpg 640w,
-                      ./images/t-news-800.jpg 800w
-                    "
-                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
+                    class="responsive-image gallery_image"
+                    src="./images/t-news-480.jpg"
                     alt="Новостное приложение T-News с лентой статей"
+                    loading="lazy"
                     width="640"
                     height="450"
-                    loading="lazy"
-                    decoding="async"
                   />
                 </picture>
               </div>
@@ -290,30 +296,34 @@
             <article class="project-card">
               <div class="project-image">
                 <picture>
-                  <!-- WebP формат -->
+                  <!-- WebP версии -->
                   <source
+                    media="(min-width: 1200px)"
+                    srcset="./images/tasks-800.webp"
                     type="image/webp"
-                    srcset="
-                      ./images/tasks-480.webp 480w,
-                      ./images/tasks-640.webp 640w,
-                      ./images/tasks-800.webp 800w
-                    "
-                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
                   />
-                  <!-- Fallback PNG -->
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="./images/tasks-640.webp"
+                    type="image/webp"
+                  />
+                  <source srcset="./images/tasks-480.webp" type="image/webp" />
+                  <!-- JPEG версии -->
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="./images/tasks-800.jpg"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="./images/tasks-640.jpg"
+                  />
                   <img
-                    src="./images/tasks-640.jpg"
-                    srcset="
-                      ./images/tasks-480.jpg 480w,
-                      ./images/tasks-640.jpg 640w,
-                      ./images/tasks-800.jpg 800w
-                    "
-                    sizes="(max-width: 768px) 480px, (max-width: 1200px) 640px, 800px"
+                    class="responsive-image gallery_image"
+                    src="./images/tasks-480.jpg"
                     alt="Система управления задачами с канбан-доской"
+                    loading="lazy"
                     width="640"
                     height="450"
-                    loading="lazy"
-                    decoding="async"
                   />
                 </picture>
               </div>
@@ -335,6 +345,69 @@
                   </a>
                   <a
                     href="https://github.com/Sofiia-cloud/task-management-system"
+                    class="btn btn-small btn-outline"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    Код
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-image">
+                <picture>
+                  <!-- WebP версии -->
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="./images/t-news-800.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="./images/t-news-640.webp"
+                    type="image/webp"
+                  />
+                  <source srcset="./images/t-news-480.webp" type="image/webp" />
+                  <!-- JPEG версии -->
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="./images/t-news-800.jpg"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="./images/t-news-640.jpg"
+                  />
+                  <img
+                    class="responsive-image gallery_image"
+                    src="./images/t-news-480.jpg"
+                    alt="Новостное приложение T-News с лентой статей"
+                    loading="lazy"
+                    width="640"
+                    height="450"
+                  />
+                </picture>
+              </div>
+              <div class="project-content">
+                <h3 class="project-card_title">T-News</h3>
+                <p class="project-card_description">
+                  Новостное приложение с адаптивным дизайном и фильтрацией
+                </p>
+                <div class="project-tech">React, API, CSS Grid</div>
+                <div class="project-links">
+                  <a
+                    href="https://t-news-app.vercel.app/"
+                    class="btn btn-small"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                    Демо
+                  </a>
+                  <a
+                    href="https://github.com/Sofiia-cloud/T-News-app"
                     class="btn btn-small btn-outline"
                     target="_blank"
                     rel="noopener"
@@ -385,10 +458,10 @@
       </section>
     </main>
 
-    <!-- Футер с безопасными областями -->
+    <!-- Футер -->
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2024. Все права защищены.</p>
+        <p>&copy; 2025. Все права защищены.</p>
       </div>
     </footer>
   </body>

@@ -1560,3 +1560,148 @@ header:not(.nav) {
     background: var(--accent);
   }
 }
+
+/* Добавьте эти стили в ваш существующий CSS файл */
+
+/* Базовое адаптивное изображение */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Picture element - стили такие же как у базового */
+picture {
+  display: block;
+}
+
+/* Retina изображение */
+.retina-image {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Object-fit демонстрация */
+.object-fit-demo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.object-fit-item {
+  text-align: center;
+}
+
+.object-fit-item img {
+  width: 100%;
+  height: 200px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.object-fit-contain {
+  object-fit: contain;
+  background: #f8f9fa;
+}
+
+.object-fit-fill {
+  object-fit: fill;
+}
+
+/* Адаптивная галерея из практического занятия */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.gallery_item {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery_image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.gallery_image:hover {
+  transform: scale(1.05);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery_image {
+    height: 150px;
+  }
+
+  .object-fit-demo {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .object-fit-item img {
+    height: 150px;
+  }
+}
+
+/* Поддержка высоких экранов */
+@media (min-height: 800px) and (min-width: 1200px) {
+  .gallery_image {
+    height: 250px;
+  }
+}
+
+/* Блоки с объяснениями из практического занятия */
+.explanation {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  margin-top: 1rem;
+}
+
+.explanation h3 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.explanation ul {
+  list-style-position: inside;
+}
+
+.explanation li {
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+}
+
+/* Контейнер для изображений */
+.image-container {
+  margin-bottom: 1.5rem;
+  border: 2px dashed #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #f8fafc;
+}

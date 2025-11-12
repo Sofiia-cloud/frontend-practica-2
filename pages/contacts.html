@@ -12,9 +12,7 @@
   </head>
   <body class="page">
     <!-- Ссылка-пропуск для доступности -->
-    <a href="#main-content" class="skip-link visually-hidden"
-      >Перейти к основному содержанию</a
-    >
+    <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
 
     <header class="nav">
       <div class="container header-container">
@@ -23,7 +21,7 @@
           <h1>София</h1>
         </div>
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Основная навигация">
         <a href="../index.html">Главная</a>
         <a href="projects.html">Проекты</a>
         <a href="diary.html">Дневник</a>
@@ -114,6 +112,8 @@
       <section class="section contact-section">
         <div class="container">
           <h2 class="section-title">КОНТАКТЫ</h2>
+          <p>Свяжитесь со мной для сотрудничества или обсуждения проектов</p>
+
           <div class="social-links">
             <a
               href="https://t.me/sofico6"
@@ -121,6 +121,7 @@
               aria-label="Telegram"
             >
               <i class="fab fa-telegram" aria-hidden="true"></i>
+              <span class="visually-hidden">Telegram</span>
             </a>
             <a
               href="https://github.com/Sofiia-cloud"
@@ -128,6 +129,7 @@
               aria-label="GitHub"
             >
               <i class="fab fa-github" aria-hidden="true"></i>
+              <span class="visually-hidden">GitHub</span>
             </a>
             <a
               href="mailto:sofiya.golovushkina@bk.ru"
@@ -135,6 +137,7 @@
               aria-label="Email"
             >
               <i class="fas fa-envelope" aria-hidden="true"></i>
+              <span class="visually-hidden">Email</span>
             </a>
           </div>
         </div>
@@ -280,17 +283,17 @@
           notification.className = "notification";
           notification.textContent = message;
           notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--primary);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            z-index: 10000;
-            animation: slideIn 0.3s ease;
-            max-width: 300px;
-          `;
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--primary);
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    z-index: 10000;
+                    animation: slideIn 0.3s ease;
+                    max-width: 300px;
+                `;
 
           document.body.appendChild(notification);
 
@@ -301,63 +304,6 @@
             }, 300);
           }, 3000);
         }
-
-        // Добавляем стили для уведомлений и ошибок
-        const style = document.createElement("style");
-        style.textContent = `
-          .error {
-            border-color: #e74c3c !important;
-            background-color: #fdf2f2;
-          }
-          
-          .error-message {
-            color: #e74c3c;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-            display: block;
-          }
-          
-          .error-message.visually-hidden {
-            display: none;
-          }
-          
-          @keyframes slideIn {
-            from {
-              transform: translateX(100%);
-              opacity: 0;
-            }
-            to {
-              transform: translateX(0);
-              opacity: 1;
-            }
-          }
-          
-          @keyframes slideOut {
-            from {
-              transform: translateX(0);
-              opacity: 1;
-            }
-            to {
-              transform: translateX(100%);
-              opacity: 0;
-            }
-          }
-          
-          .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-          }
-          
-          .fa-spinner {
-            animation: spin 1s linear infinite;
-          }
-          
-          @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-        `;
-        document.head.appendChild(style);
       });
     </script>
   </body>

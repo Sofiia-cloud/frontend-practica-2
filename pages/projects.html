@@ -12,9 +12,7 @@
   </head>
   <body class="page">
     <!-- Ссылка-пропуск для доступности -->
-    <a href="#main-content" class="skip-link visually-hidden"
-      >Перейти к основному содержанию</a
-    >
+    <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
 
     <header class="nav">
       <div class="container header-container">
@@ -23,7 +21,7 @@
           <h1>София</h1>
         </div>
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Основная навигация">
         <a href="../index.html">Главная</a>
         <a href="projects.html" class="active">Проекты</a>
         <a href="diary.html">Дневник</a>
@@ -75,7 +73,7 @@
             </button>
           </div>
 
-          <div class="projects-grid" id="projects-container">
+          <div class="projects-grid gallery" id="projects-container">
             <article
               class="project-card-large"
               data-project="resume"
@@ -83,30 +81,37 @@
             >
               <div class="project-image">
                 <picture>
+                  <!-- WebP с разными размерами для разных экранов -->
                   <source
-                    srcset="
-                      ../images/resume-320.webp 320w,
-                      ../images/resume-480.webp 480w,
-                      ../images/resume-640.webp 640w,
-                      ../images/resume-800.webp 800w
-                    "
-                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    media="(min-width: 1200px)"
+                    srcset="../images/resume-800.webp"
                     type="image/webp"
                   />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="../images/resume-640.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="../images/resume-480.webp"
+                    type="image/webp"
+                  />
+                  <!-- JPEG fallback с разными размерами -->
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="../images/resume-800.jpg"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="../images/resume-640.jpg"
+                  />
                   <img
-                    src="../images/resume-640.jpg"
-                    srcset="
-                      ../images/resume-320.jpg 320w,
-                      ../images/resume-480.jpg 480w,
-                      ../images/resume-640.jpg 640w,
-                      ../images/resume-800.jpg 800w
-                    "
-                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    class="responsive-image gallery_image"
+                    src="../images/resume-480.jpg"
                     alt="Скриншот проекта Резюме - адаптивный макет с современным дизайном"
+                    loading="lazy"
                     width="400"
                     height="250"
-                    loading="lazy"
-                    decoding="async"
                   />
                 </picture>
               </div>
@@ -145,30 +150,34 @@
             >
               <div class="project-image">
                 <picture>
+                  <!-- WebP с разными размерами -->
                   <source
-                    srcset="
-                      ../images/tasks-320.webp 320w,
-                      ../images/tasks-480.webp 480w,
-                      ../images/tasks-640.webp 640w,
-                      ../images/tasks-800.webp 800w
-                    "
-                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    media="(min-width: 1200px)"
+                    srcset="../images/tasks-800.webp"
                     type="image/webp"
                   />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="../images/tasks-640.webp"
+                    type="image/webp"
+                  />
+                  <source srcset="../images/tasks-480.webp" type="image/webp" />
+                  <!-- JPEG fallback -->
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="../images/tasks-800.jpg"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="../images/tasks-640.jpg"
+                  />
                   <img
-                    src="../images/tasks-640.jpg"
-                    srcset="
-                      ../images/tasks-320.jpg 320w,
-                      ../images/tasks-480.jpg 480w,
-                      ../images/tasks-640.jpg 640w,
-                      ../images/tasks-800.jpg 800w
-                    "
-                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    class="responsive-image gallery_image"
+                    src="../images/tasks-480.jpg"
                     alt="Скриншот Todo-приложения - интерфейс управления задачами"
+                    loading="lazy"
                     width="400"
                     height="250"
-                    loading="lazy"
-                    decoding="async"
                   />
                 </picture>
               </div>
@@ -207,30 +216,106 @@
             >
               <div class="project-image">
                 <picture>
+                  <!-- WebP с разными размерами -->
                   <source
-                    srcset="
-                      ../images/t-news-320.webp 320w,
-                      ../images/t-news-480.webp 480w,
-                      ../images/t-news-640.webp 640w,
-                      ../images/t-news-800.webp 800w
-                    "
-                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    media="(min-width: 1200px)"
+                    srcset="../images/t-news-800.webp"
                     type="image/webp"
                   />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="../images/t-news-640.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="../images/t-news-480.webp"
+                    type="image/webp"
+                  />
+                  <!-- JPEG fallback -->
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="../images/t-news-800.jpg"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="../images/t-news-640.jpg"
+                  />
                   <img
-                    src="../images/t-news-640.jpg"
-                    srcset="
-                      ../images/t-news-320.jpg 320w,
-                      ../images/t-news-480.jpg 480w,
-                      ../images/t-news-640.jpg 640w,
-                      ../images/t-news-800.jpg 800w
-                    "
-                    sizes="(max-width: 480px) 280px, (max-width: 768px) 320px, 400px"
+                    class="responsive-image gallery_image"
+                    src="../images/t-news-480.jpg"
                     alt="Скриншот новостного приложения T-News - современный интерфейс с лентой новостей"
+                    loading="lazy"
                     width="400"
                     height="250"
+                  />
+                </picture>
+              </div>
+              <div class="project-content">
+                <h3>Новостное приложение T-News</h3>
+                <p class="project-tech">React, API</p>
+                <p class="project-description">
+                  Полнофункциональное веб-приложение для публикации и чтения
+                  новостей с системой пользователей и комментариев.
+                </p>
+                <div class="project-links">
+                  <a
+                    href="https://t-news-app.vercel.app/"
+                    class="btn btn-small"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <i class="fas fa-external-link-alt"></i>Демо
+                  </a>
+                  <a
+                    href="https://github.com/Sofiia-cloud/T-News-app"
+                    class="btn btn-small btn-outline"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <i class="fab fa-github"></i>Код
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="project-card-large"
+              data-project="news"
+              data-category="react"
+            >
+              <div class="project-image">
+                <picture>
+                  <!-- WebP с разными размерами -->
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="../images/t-news-800.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="../images/t-news-640.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="../images/t-news-480.webp"
+                    type="image/webp"
+                  />
+                  <!-- JPEG fallback -->
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="../images/t-news-800.jpg"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="../images/t-news-640.jpg"
+                  />
+                  <img
+                    class="responsive-image gallery_image"
+                    src="../images/t-news-480.jpg"
+                    alt="Скриншот новостного приложения T-News - современный интерфейс с лентой новостей"
                     loading="lazy"
-                    decoding="async"
+                    width="400"
+                    height="250"
                   />
                 </picture>
               </div>

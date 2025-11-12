@@ -12,9 +12,7 @@
   </head>
   <body class="page">
     <!-- Ссылка-пропуск для доступности -->
-    <a href="#main-content" class="skip-link visually-hidden"
-      >Перейти к основному содержанию</a
-    >
+    <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
 
     <header class="nav">
       <div class="container header-container">
@@ -23,7 +21,7 @@
           <h1>София</h1>
         </div>
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Основная навигация">
         <a href="../index.html">Главная</a>
         <a href="projects.html">Проекты</a>
         <a href="diary.html" class="active">Дневник</a>
@@ -56,7 +54,7 @@
                   <span class="status completed">✓ Завершено</span>
                   <p>
                     Изучение основных концепций JavaScript: переменные, функции,
-                    DOM 
+                    DOM
                   </p>
                 </div>
               </article>
@@ -80,6 +78,9 @@
 
             <div class="courses-progress">
               <h3>Текущие курсы</h3>
+
+              
+
               <div id="skills-container">
                 <div class="course-item">
                   <div class="course-name">
@@ -288,14 +289,14 @@
           const newSkill = document.createElement("div");
           newSkill.className = "course-item";
           newSkill.innerHTML = `
-            <div class="course-name">
-              <span>${skillName}</span>
-              <span>${skillPercent}%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="width: ${skillPercent}%"></div>
-            </div>
-          `;
+                    <div class="course-name">
+                        <span>${skillName}</span>
+                        <span>${skillPercent}%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: ${skillPercent}%"></div>
+                    </div>
+                `;
 
           skillsContainer.appendChild(newSkill);
 
@@ -312,17 +313,17 @@
           notification.className = "notification";
           notification.textContent = message;
           notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--primary);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            z-index: 10000;
-            animation: slideIn 0.3s ease;
-            max-width: 300px;
-          `;
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--primary);
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    z-index: 10000;
+                    animation: slideIn 0.3s ease;
+                    max-width: 300px;
+                `;
 
           document.body.appendChild(notification);
 
@@ -333,67 +334,6 @@
             }, 300);
           }, 3000);
         }
-
-        // Добавляем стили для ошибок
-        const style = document.createElement("style");
-        style.textContent = `
-          .error {
-            border-color: #e74c3c !important;
-            background-color: #fdf2f2;
-          }
-          
-          .error-message {
-            color: #e74c3c;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-            display: block;
-          }
-          
-          .error-message.visually-hidden {
-            display: none;
-          }
-          
-          @keyframes slideIn {
-            from {
-              transform: translateX(100%);
-              opacity: 0;
-            }
-            to {
-              transform: translateX(0);
-              opacity: 1;
-            }
-          }
-          
-          @keyframes slideOut {
-            from {
-              transform: translateX(0);
-              opacity: 1;
-            }
-            to {
-              transform: translateX(100%);
-              opacity: 0;
-            }
-          }
-          
-          .timeline-item {
-            transition: transform 0.3s ease;
-          }
-          
-          .timeline-item:hover {
-            transform: translateX(5px);
-          }
-          
-          @media (prefers-reduced-motion: reduce) {
-            .timeline-item {
-              transition: none;
-            }
-            
-            .timeline-item:hover {
-              transform: none;
-            }
-          }
-        `;
-        document.head.appendChild(style);
       });
     </script>
   </body>

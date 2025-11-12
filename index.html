@@ -23,7 +23,7 @@
         </div>
       </div>
       <nav class="nav-links" aria-label="Основная навигация">
-        <a href="index.html" class="nav-link">Главная</a>
+        <a href="index.html" class="nav-link" aria-current="page">Главная</a>
         <a href="./pages/projects.html" class="nav-link">Проекты</a>
         <a href="./pages/diary.html" class="nav-link">Дневник</a>
         <a href="./pages/contacts.html" class="nav-link">Контакты</a>
@@ -67,7 +67,7 @@
                     images/photo-300.jpg 300w
                   "
                   sizes="(max-width: 768px) 150px, 200px"
-                  alt="Портрет"
+                  alt="Портрет Софии"
                   width="200"
                   height="200"
                   loading="eager"
@@ -105,7 +105,11 @@
                   <span>90%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 90%"></div>
+                  <div
+                    class="skill-progress"
+                    style="width: 90%"
+                    aria-label="Уровень навыка HTML/CSS: 90%"
+                  ></div>
                 </div>
               </div>
               <div class="skill-item">
@@ -114,7 +118,11 @@
                   <span>80%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 80%"></div>
+                  <div
+                    class="skill-progress"
+                    style="width: 80%"
+                    aria-label="Уровень навыка JavaScript: 80%"
+                  ></div>
                 </div>
               </div>
               <div class="skill-item">
@@ -123,7 +131,11 @@
                   <span>85%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 85%"></div>
+                  <div
+                    class="skill-progress"
+                    style="width: 85%"
+                    aria-label="Уровень навыка React: 85%"
+                  ></div>
                 </div>
               </div>
             </div>
@@ -136,7 +148,11 @@
                   <span>70%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 70%"></div>
+                  <div
+                    class="skill-progress"
+                    style="width: 70%"
+                    aria-label="Уровень навыка Python: 70%"
+                  ></div>
                 </div>
               </div>
               <div class="skill-item">
@@ -145,7 +161,11 @@
                   <span>75%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 75%"></div>
+                  <div
+                    class="skill-progress"
+                    style="width: 75%"
+                    aria-label="Уровень навыка Node.js: 75%"
+                  ></div>
                 </div>
               </div>
               <div class="skill-item">
@@ -154,7 +174,11 @@
                   <span>65%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 65%"></div>
+                  <div
+                    class="skill-progress"
+                    style="width: 65%"
+                    aria-label="Уровень навыка Базы данных: 65%"
+                  ></div>
                 </div>
               </div>
             </div>
@@ -213,6 +237,7 @@
                     class="btn btn-small"
                     target="_blank"
                     rel="noopener"
+                    aria-label="Посмотреть демо проекта Адаптивное резюме"
                   >
                     <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                     Демо
@@ -222,6 +247,7 @@
                     class="btn btn-small btn-outline"
                     target="_blank"
                     rel="noopener"
+                    aria-label="Посмотреть код проекта Адаптивное резюме на GitHub"
                   >
                     <i class="fab fa-github" aria-hidden="true"></i>
                     Код
@@ -276,6 +302,7 @@
                     class="btn btn-small"
                     target="_blank"
                     rel="noopener"
+                    aria-label="Посмотреть демо проекта T-News"
                   >
                     <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                     Демо
@@ -285,6 +312,7 @@
                     class="btn btn-small btn-outline"
                     target="_blank"
                     rel="noopener"
+                    aria-label="Посмотреть код проекта T-News на GitHub"
                   >
                     <i class="fab fa-github" aria-hidden="true"></i>
                     Код
@@ -339,6 +367,7 @@
                     class="btn btn-small"
                     target="_blank"
                     rel="noopener"
+                    aria-label="Посмотреть демо проекта Task Manager"
                   >
                     <i class="fas fa-external-link-alt" aria-hidden="true"></i>
                     Демо
@@ -348,69 +377,7 @@
                     class="btn btn-small btn-outline"
                     target="_blank"
                     rel="noopener"
-                  >
-                    <i class="fab fa-github" aria-hidden="true"></i>
-                    Код
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-image">
-                <picture>
-                  <!-- WebP версии -->
-                  <source
-                    media="(min-width: 1200px)"
-                    srcset="./images/t-news-800.webp"
-                    type="image/webp"
-                  />
-                  <source
-                    media="(min-width: 768px)"
-                    srcset="./images/t-news-640.webp"
-                    type="image/webp"
-                  />
-                  <source srcset="./images/t-news-480.webp" type="image/webp" />
-                  <!-- JPEG версии -->
-                  <source
-                    media="(min-width: 1200px)"
-                    srcset="./images/t-news-800.jpg"
-                  />
-                  <source
-                    media="(min-width: 768px)"
-                    srcset="./images/t-news-640.jpg"
-                  />
-                  <img
-                    class="responsive-image gallery_image"
-                    src="./images/t-news-480.jpg"
-                    alt="Новостное приложение T-News с лентой статей"
-                    loading="lazy"
-                    width="640"
-                    height="450"
-                  />
-                </picture>
-              </div>
-              <div class="project-content">
-                <h3 class="project-card_title">T-News</h3>
-                <p class="project-card_description">
-                  Новостное приложение с адаптивным дизайном и фильтрацией
-                </p>
-                <div class="project-tech">React, API, CSS Grid</div>
-                <div class="project-links">
-                  <a
-                    href="https://t-news-app.vercel.app/"
-                    class="btn btn-small"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                    Демо
-                  </a>
-                  <a
-                    href="https://github.com/Sofiia-cloud/T-News-app"
-                    class="btn btn-small btn-outline"
-                    target="_blank"
-                    rel="noopener"
+                    aria-label="Посмотреть код проекта Task Manager на GitHub"
                   >
                     <i class="fab fa-github" aria-hidden="true"></i>
                     Код
